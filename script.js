@@ -60,7 +60,8 @@ function showQuestion() {
         const button = document.createElement("button");
         button.innerHTML = answer.text;
         button.classList.add("btn");
-        button.dataset.correct = answer.correct;
+        button.dataset.correct = answer.correct; /*dataSet builtin property html ki iska yh mtlb html me
+        <button class="btn" data-correct="true">Zaid</button>*/
         button.addEventListener("click", selectAnswer);
         answerButtons.appendChild(button);
     });
@@ -82,7 +83,8 @@ function selectAnswer(e) {
     } else {
         selectedBtn.classList.add("incorrect");
     }
-    Array.from(answerButtons.children).forEach(button => {
+    Array.from(answerButtons.children).forEach(button => {  /*Array.from() creates a new, shallow-copied Array
+                                                             instance from an array-like or iterable object.*/
         if (button.dataset.correct === "true") {
             button.classList.add("correct");
         }
